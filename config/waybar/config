@@ -1,0 +1,98 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 10,
+    "margin-bottom": 0,
+    "margin-top": 0,
+    "modules-left": [
+        "cpu",
+        "memory",
+        "custom/uair"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "idle_inhibitor",
+        "pulseaudio",
+        "clock"
+    ],
+    "hyprland/workspaces": {
+        "sort-by-name": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    },
+    "hyprland/window": {
+        "max-length": 200,
+        "separate-outputs": true
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 6
+    },
+    "clock": {
+        "locale": "C",
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%a,%b %d}"
+    },
+    "cpu": {
+        "format": "&#8239;{usage}%",
+        "tooltip": false,
+        "on-click": "kitty -e 'htop'"
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {used:0.2f}GB",
+        "max-length": 10,
+        "tooltip": false,
+        "warning": 70,
+        "critical": 90
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": " {format_source}",
+        "format-muted": "  {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "🎧",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/uair": {
+        "format": "⏱ {text}",
+        "tooltip": false,
+        "return-type": "json",
+        "interval": 1,
+        "exec-if": "which uair",
+        "exec": "uairctl fetch '{\"text\":\"{time}\",\"class\":\"{state}\"}'"
+    }
+}
