@@ -16,7 +16,8 @@
         "tray",
         "idle_inhibitor",
         "pulseaudio",
-        "clock"
+        "clock",
+        "custom/power"
     ],
     "hyprland/workspaces": {
         "sort-by-name": true,
@@ -93,6 +94,11 @@
         "return-type": "json",
         "interval": 1,
         "exec-if": "which uair",
-        "exec": "uairctl fetch '{\"text\":\"{time}\",\"class\":\"{state}\"}'"
+        "exec": "~/.config/waybar/scripts/uair-wrapper.sh"
+    },
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/power-menu.sh"
     }
 }
